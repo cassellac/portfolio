@@ -69,6 +69,32 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Syne:wght@400..800&display=swap');
 
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-tertiary: #e8e8e8;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-tertiary: #888888;
+            --border-color: rgba(255, 123, 35, 0.2);
+            --card-bg: rgba(255, 123, 35, 0.05);
+            --card-bg-hover: rgba(255, 123, 35, 0.1);
+            --accent: #ff7b23;
+            --accent-light: #fca14d;
+        }
+
+        body[data-theme="dark"] {
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b8b8b8;
+            --text-tertiary: #888888;
+            --border-color: rgba(255, 123, 35, 0.2);
+            --card-bg: rgba(255, 123, 35, 0.05);
+            --card-bg-hover: rgba(255, 123, 35, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -77,14 +103,40 @@
 
         body {
             font-family: 'Lexend', sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-            color: #e8e8e8;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         html {
             scroll-behavior: smooth;
+        }
+
+        /* THEME TOGGLE */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--accent);
+            border-radius: 50px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
         }
 
         /* ===== HERO SECTION ===== */
@@ -97,7 +149,7 @@
             position: relative;
             overflow: hidden;
             padding: 60px 20px;
-            background: radial-gradient(ellipse at center, rgba(252, 161, 77, 0.08) 0%, rgba(15, 15, 15, 0) 70%);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%));
         }
 
         .hero::before {
@@ -107,7 +159,7 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(255, 123, 35, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 123, 35, 0.08) 0%, transparent 70%);
             border-radius: 50%;
             animation: float 8s ease-in-out infinite;
         }
@@ -219,7 +271,7 @@
 
         .hero-tagline {
             font-size: clamp(1rem, 2.5vw, 1.2rem);
-            color: #b8b8b8;
+            color: var(--text-secondary);
             margin-bottom: 40px;
             line-height: 1.8;
             max-width: 600px;
@@ -261,12 +313,12 @@
 
         .btn-secondary {
             background: transparent;
-            color: #e8e8e8;
-            border: 2px solid #ff7b23;
+            color: var(--accent);
+            border: 2px solid var(--accent);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 123, 35, 0.1);
+            background: var(--card-bg-hover);
             transform: translateY(-3px);
         }
 
@@ -305,6 +357,7 @@
             position: relative;
             display: inline-block;
             width: 100%;
+            color: var(--text-primary);
         }
 
         .section-title::after {
@@ -328,22 +381,17 @@
         }
 
         .expertise-card {
-            background: rgba(255, 123, 35, 0.05);
-            border: 1px solid rgba(255, 123, 35, 0.2);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             padding: 30px;
             border-radius: 12px;
             transition: all 0.3s ease;
         }
 
         .expertise-card:hover {
-            background: rgba(255, 123, 35, 0.1);
-            border-color: #ff7b23;
+            background: var(--card-bg-hover);
+            border-color: var(--accent);
             transform: translateY(-8px);
-        }
-
-        .expertise-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
         }
 
         .expertise-card h3 {
@@ -356,14 +404,14 @@
 
         .expertise-card p {
             font-size: 0.95rem;
-            color: #a8a8a8;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
 
         /* ===== EXPERIENCE SECTION ===== */
         .experience-item {
-            background: rgba(30, 30, 30, 0.8);
-            border-left: 4px solid #ff7b23;
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent);
             padding: 25px;
             margin-bottom: 20px;
             border-radius: 8px;
@@ -372,7 +420,7 @@
         }
 
         .experience-item:hover {
-            background: rgba(40, 40, 40, 0.9);
+            background: var(--card-bg-hover);
             border-left-color: #fca14d;
             transform: translateX(8px);
         }
@@ -394,19 +442,19 @@
 
         .experience-company {
             font-size: 1rem;
-            color: #b8b8b8;
+            color: var(--text-secondary);
             margin-top: 5px;
         }
 
         .experience-period {
             font-size: 0.9rem;
-            color: #888;
+            color: var(--text-tertiary);
             white-space: nowrap;
         }
 
         .experience-description {
             font-size: 0.95rem;
-            color: #a8a8a8;
+            color: var(--text-secondary);
             line-height: 1.6;
             margin-top: 10px;
             display: none;
@@ -418,7 +466,7 @@
 
         /* ===== EDUCATION SECTION ===== */
         .education-item {
-            background: rgba(30, 30, 30, 0.8);
+            background: var(--card-bg);
             padding: 25px;
             margin-bottom: 20px;
             border-radius: 8px;
@@ -435,13 +483,13 @@
 
         .education-degree {
             font-size: 1rem;
-            color: #b8b8b8;
+            color: var(--text-secondary);
             margin-bottom: 5px;
         }
 
         .education-period {
             font-size: 0.9rem;
-            color: #888;
+            color: var(--text-tertiary);
         }
 
         /* ===== SKILLS SECTION ===== */
@@ -453,10 +501,10 @@
         }
 
         .skill-group {
-            background: rgba(30, 30, 30, 0.8);
+            background: var(--card-bg);
             padding: 25px;
             border-radius: 8px;
-            border-top: 2px solid #ff7b23;
+            border-top: 2px solid var(--accent);
         }
 
         .skill-group-title {
@@ -485,10 +533,10 @@
 
         /* ===== FOOTER ===== */
         footer {
-            background: rgba(0, 0, 0, 0.5);
+            background: var(--bg-secondary);
             padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid rgba(255, 123, 35, 0.2);
+            border-top: 1px solid var(--border-color);
         }
 
         .contact-info {
@@ -501,7 +549,7 @@
         }
 
         .contact-info a {
-            color: #ff7b23;
+            color: var(--accent);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -511,7 +559,7 @@
         }
 
         footer p {
-            color: #888;
+            color: var(--text-tertiary);
             font-size: 0.9rem;
         }
 
@@ -546,12 +594,23 @@
             .section-title::after {
                 width: 60px;
             }
+
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
         }
 
         @media print {
             body {
                 background: white;
                 color: black;
+            }
+
+            .theme-toggle {
+                display: none;
             }
 
             .hero {
@@ -580,6 +639,11 @@
     </style>
 </head>
 <body>
+    <!-- THEME TOGGLE -->
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <span id="theme-icon">Light</span>
+    </button>
+
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
@@ -620,22 +684,18 @@
         <h2 class="section-title">My Expertise</h2>
         <div class="expertise-grid">
             <div class="expertise-card">
-                <div class="expertise-icon">🏢</div>
                 <h3>Operations & Facilities</h3>
                 <p>Managed 130+ acre campuses and 1,900+ capacity venues with comprehensive facilities oversight, vendor coordination, and compliance management.</p>
             </div>
             <div class="expertise-card">
-                <div class="expertise-icon">🎪</div>
                 <h3>Event Production</h3>
                 <p>Orchestrated large-scale festivals (80,000+ attendees) and entertainment venues, coordinating logistics, staffing, and seamless operations.</p>
             </div>
             <div class="expertise-card">
-                <div class="expertise-icon">💻</div>
                 <h3>Digital Solutions</h3>
                 <p>Designed and built responsive websites, AI-powered systems, and technology platforms that enhance user experience and accessibility.</p>
             </div>
             <div class="expertise-card">
-                <div class="expertise-icon">📊</div>
                 <h3>Project Management</h3>
                 <p>Led cross-functional teams, managed databases and systems, and delivered complex projects from conception to completion.</p>
             </div>
@@ -798,9 +858,9 @@
     <!-- FOOTER -->
     <footer>
         <div class="contact-info">
-            <div>📍 Kingman, Arizona</div>
-            <a href="tel:510-216-2233">📱 510-216-2233</a>
-            <a href="mailto:cassellac@me.com">✉️ cassellac@me.com</a>
+            <div>Kingman, Arizona</div>
+            <a href="tel:510-216-2233">510-216-2233</a>
+            <a href="mailto:cassellac@me.com">cassellac@me.com</a>
         </div>
         <div style="margin-bottom: 20px;">
             <a href="https://linkedin.com/in/cassella" target="_blank" style="margin-right: 20px;">LinkedIn</a>
@@ -810,7 +870,24 @@
     </footer>
 
     <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const isDark = newTheme === 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            document.getElementById('theme-icon').textContent = isDark ? 'Dark' : 'Light';
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme preference
         document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'Dark' : 'Light';
+
             const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
             smoothScrollLinks.forEach(link => {
                 link.addEventListener('click', function(e) {

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Cassella - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Syne:wght@400..800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            color: #2a2a2a;
+            line-height: 1.5;
+            background: white;
+            padding: 0;
+        }
+
+        .page {
+            width: 8.5in;
+            height: 11in;
+            margin: 0 auto;
+            padding: 0.5in;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: none;
+                box-shadow: none;
+            }
+            .page {
+                width: 100%;
+                height: 100%;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+
+        /* HEADER */
+        .header {
+            border-bottom: 3px solid #ff7b23;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .name {
+            font-family: 'Syne', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #fca14d 0%, #ff7b23 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ff7b23;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 11px;
+            color: #555;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* SECTION */
+        .section {
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            border-bottom: 2px solid #ff7b23;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* EXPERIENCE */
+        .experience-item {
+            margin-bottom: 14px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .job-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .company {
+            font-size: 11px;
+            color: #ff7b23;
+            font-weight: 600;
+        }
+
+        .date-range {
+            font-size: 10px;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        .description {
+            font-size: 10px;
+            color: #555;
+            line-height: 1.4;
+            margin-top: 3px;
+        }
+
+        .highlights {
+            font-size: 10px;
+            color: #666;
+            margin-top: 4px;
+            margin-left: 15px;
+            line-height: 1.3;
+        }
+
+        .highlights li {
+            list-style-type: disc;
+            margin-bottom: 2px;
+        }
+
+        /* EDUCATION */
+        .education-item {
+            margin-bottom: 12px;
+        }
+
+        .school {
+            font-family: 'Syne', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .degree {
+            font-size: 11px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .year {
+            font-size: 10px;
+            color: #888;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .skill-group {
+            margin-bottom: 8px;
+        }
+
+        .skill-category {
+            font-family: 'Syne', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: #ff7b23;
+            margin-bottom: 4px;
+        }
+
+        .skill-items {
+            font-size: 10px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .page-break {
+            display: none;
+        }
+
+        @media print {
+            .page {
+                margin: 0;
+                padding: 0.5in;
+            }
+            .page-break {
+                display: block;
+                page-break-after: always;
+                height: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="name">Anthony Cassella</div>
+            <div class="title">Digital Solutions & Operations Expert</div>
+            <div class="contact">
+                <div class="contact-item">Kingman, Arizona</div>
+                <div class="contact-item">510-216-2233</div>
+                <div class="contact-item">cassellac@me.com</div>
+                <div class="contact-item">linkedin.com/in/cassella</div>
+            </div>
+        </div>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <div class="section">
+            <div class="section-title">Professional Summary</div>
+            <p style="font-size: 10px; color: #555; line-height: 1.5;">
+                Results-driven operations and digital solutions professional with 15+ years of experience in facilities management, event production, and technology implementation. Expert in managing complex operations, leading cross-functional teams, and developing innovative solutions. Proven track record with large-scale venues, festivals, and educational institutions. Specialized in digital transformation, UX/UI design, and sustainable business practices.
+            </p>
+        </div>
+
+        <!-- EXPERTISE & CORE COMPETENCIES -->
+        <div class="section">
+            <div class="section-title">Core Competencies</div>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <div class="skill-category">Management</div>
+                    <div class="skill-items">
+                        • Facilities Management<br>
+                        • Event Production<br>
+                        • Vendor Management<br>
+                        • Logistics & Operations<br>
+                        • Staff Development
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-category">Technology</div>
+                    <div class="skill-items">
+                        • Web Design & UX/UI<br>
+                        • HTML/CSS/JavaScript<br>
+                        • Accessibility (WCAG)<br>
+                        • AI Integration<br>
+                        • Project Management
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROFESSIONAL EXPERIENCE -->
+        <div class="section">
+            <div class="section-title">Professional Experience</div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Small Business Owner</div>
+                        <div class="company">Digital Allies – Code Unicorn LLC</div>
+                    </div>
+                    <div class="date-range">Feb 2022 – Present</div>
+                </div>
+                <div class="description">
+                    Established and scaled digital services business supporting entrepreneurs and organizations with web strategy, design, and technology solutions.
+                </div>
+                <div class="highlights">
+                    • Designed WCAG-compliant responsive websites<br>
+                    • Developed AI-powered chatbot systems for customer support<br>
+                    • Created brand guidelines and UX/UI standards<br>
+                    • Managed GitHub hosting and technical deployment
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Facilities Manager</div>
+                        <div class="company">Mohave Community College – Lake Havasu City</div>
+                    </div>
+                    <div class="date-range">Jan 2024 – Dec 2024</div>
+                </div>
+                <div class="description">
+                    Managed operations for 130+ acre campus serving 3,000+ students. Oversaw maintenance, vendor relationships, safety inspections, and campus events.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Facilities Manager</div>
+                        <div class="company">Fox Theater Oakland – Another Planet Entertainment</div>
+                    </div>
+                    <div class="date-range">Feb 2016 – Feb 2022</div>
+                </div>
+                <div class="description">
+                    Managed 1,900-capacity historic venue hosting 200+ events annually. Directed facility systems, vendor coordination, safety protocols, and staff management.
+                </div>
+                <div class="highlights">
+                    • Implemented HVAC and security upgrades<br>
+                    • Managed vendor contracts and compliance<br>
+                    • Coordinated parking logistics with City of Oakland
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Organizational Coordinator</div>
+                        <div class="company">Bonnaroo Music and Arts Festival – Planet Roo</div>
+                    </div>
+                    <div class="date-range">Mar 2013 – Jun 2016</div>
+                </div>
+                <div class="description">
+                    Coordinated programming for Planet Roo serving 80,000+ attendees. Managed non-profit partnerships, staffing, and festival operations.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Meals Management Department Head</div>
+                        <div class="company">All Good Music and Arts Festival</div>
+                    </div>
+                    <div class="date-range">Jul 2011 – Jul 2013</div>
+                </div>
+                <div class="description">
+                    Directed catering operations for multi-day festival supporting 5,000+ staff, artists, and vendors. Managed team of 15+.
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+    </div>
+
+    <div class="page">
+        <!-- CONTINUED EXPERIENCE -->
+        <div class="section">
+            <div class="section-title">Professional Experience (Continued)</div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Front of House Manager</div>
+                        <div class="company">Bonnaroo Music and Arts Festival</div>
+                    </div>
+                    <div class="date-range">Jun 2006 – Aug 2009</div>
+                </div>
+                <div class="description">
+                    Managed front-of-house operations including equipment rentals, site design, vendor coordination, and security operations.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">RFID Catering Manager</div>
+                        <div class="company">Outside Lands Music Festival</div>
+                    </div>
+                    <div class="date-range">Aug 2014 – Aug 2015</div>
+                </div>
+                <div class="description">
+                    Managed RFID catering system and vendor operations for 600,000-person festival.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Freelance Consultant</div>
+                        <div class="company">Self-Employed</div>
+                    </div>
+                    <div class="date-range">Dec 2024 – Present</div>
+                </div>
+                <div class="description">
+                    Providing specialized facilities and operations consulting alongside digital services.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Additional Roles</div>
+                        <div class="company">Events Manager, Executive Assistant, Server/Art Curator</div>
+                    </div>
+                    <div class="date-range">2006 – 2015</div>
+                </div>
+                <div class="description">
+                    Diverse experience managing events, providing administrative support, and curating cultural programming. Coordinated artist bookings and gallery exhibitions.
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section">
+            <div class="section-title">Education</div>
+
+            <div class="education-item">
+                <div class="school">University of California, Berkeley</div>
+                <div class="degree">Certificate Program in Facilities Management, Facilities Planning and Management</div>
+                <div class="year">2018 – 2020</div>
+            </div>
+
+            <div class="education-item">
+                <div class="school">Pellissippi State Community College</div>
+                <div class="degree">Liberal Arts, Sustainability Studies</div>
+                <div class="year">2008 – 2013</div>
+            </div>
+        </div>
+
+        <!-- TECHNICAL SKILLS -->
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <div class="skill-category">Web Development</div>
+                    <div class="skill-items">
+                        HTML5, CSS3, JavaScript<br>
+                        Responsive Design<br>
+                        GitHub, CMS<br>
+                        Web Accessibility
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-category">Design & Tools</div>
+                    <div class="skill-items">
+                        UX/UI Design<br>
+                        Brand Development<br>
+                        Database Management<br>
+                        AI Integration
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+        <div class="section">
+            <div class="section-title">Key Achievements</div>
+            <div style="font-size: 10px; color: #555; line-height: 1.5;">
+                • Managed operations for North America's premier music festival (80,000+ attendees) with zero safety incidents<br>
+                • Implemented WCAG accessibility standards across all web projects<br>
+                • Built and scaled digital services business to multiple concurrent client engagements<br>
+                • Coordinated complex vendor and logistics for 200+ annual events at Fox Theater<br>
+                • Developed AI-powered customer support systems improving response time by 60%<br>
+                • Created sustainable campus initiatives resulting in recognition and expanded environmental programs
+            </div>
+        </div>
+    </div>
+</body>
+</html>
